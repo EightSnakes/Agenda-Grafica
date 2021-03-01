@@ -117,6 +117,8 @@ public class Buscar extends JFrame implements ActionListener{
 
 	public void actionPerformed(ActionEvent e) {
 		String nombre = txtNombre.getText();
+		String nombreA = txtNombre.getText();
+		
 		String tipo =null;
 		if(e.getSource() == btnBuscar) {
 			
@@ -165,8 +167,6 @@ public class Buscar extends JFrame implements ActionListener{
 			
 		}
 		else if(e.getSource() == modificar) {
-			
-			txtNombre.setEditable(true);
 			txtApellido.setEditable(true);
 			txtTelefono.setEditable(true);
 			txtCelular.setEditable(true);
@@ -205,7 +205,8 @@ public class Buscar extends JFrame implements ActionListener{
 			}//if
 			
 			else {
-				mp.modificar(nombre,txtNombre.getText(), txtApellido.getText(), txtTelefono.getText(), txtCelular.getText(), txtCorreo.getText(), txtCum.getText(), tipo);
+				String nombreN = txtNombre.getText();
+				mp.modificar(nombreA ,nombreN, txtApellido.getText(), txtTelefono.getText(), txtCelular.getText(), txtCorreo.getText(), txtCum.getText(), tipo);
 				JOptionPane.showMessageDialog(null, "Se guardaron los datos" , "Aviso", JOptionPane.INFORMATION_MESSAGE);
 				MenuSecundario zx = new MenuSecundario();
 				this.dispose();
